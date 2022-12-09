@@ -7,19 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A688F294308F600B9FD0E /* LoginViewController.swift */; };
+		738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68932943096200B9FD0E /* AppCoordinator.swift */; };
+		738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A689529430CD000B9FD0E /* UIView + Extension.swift */; };
+		738A689929430DD700B9FD0E /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A689829430DD700B9FD0E /* UIColor + Extension.swift */; };
+		738A689E2943189C00B9FD0E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 738A689D2943189C00B9FD0E /* SnapKit */; };
+		738A68A0294320AC00B9FD0E /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A689F294320AC00B9FD0E /* BaseCoordinator.swift */; };
+		738A68A22943213D00B9FD0E /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68A12943213D00B9FD0E /* LoginCoordinator.swift */; };
+		738A68A42943233C00B9FD0E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68A32943233C00B9FD0E /* HomeCoordinator.swift */; };
 		73A2B78E2942352C00C482E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A2B78D2942352C00C482E8 /* AppDelegate.swift */; };
 		73A2B7902942352C00C482E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A2B78F2942352C00C482E8 /* SceneDelegate.swift */; };
-		73A2B7922942352C00C482E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A2B7912942352C00C482E8 /* ViewController.swift */; };
+		73A2B7922942352C00C482E8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A2B7912942352C00C482E8 /* HomeViewController.swift */; };
 		73A2B79A2942352E00C482E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73A2B7982942352E00C482E8 /* LaunchScreen.storyboard */; };
 		73A2B7AE294236A000C482E8 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 73A2B7AD294236A000C482E8 /* KakaoSDK */; };
 		73A2B7B029423FC300C482E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73A2B7AF29423FC300C482E8 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		738A688F294308F600B9FD0E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		738A68932943096200B9FD0E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		738A689529430CD000B9FD0E /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		738A689829430DD700B9FD0E /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		738A689F294320AC00B9FD0E /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		738A68A12943213D00B9FD0E /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		738A68A32943233C00B9FD0E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		73A2B78A2942352C00C482E8 /* myUnsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myUnsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73A2B78D2942352C00C482E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73A2B78F2942352C00C482E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		73A2B7912942352C00C482E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		73A2B7912942352C00C482E8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		73A2B7992942352E00C482E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73A2B79B2942352E00C482E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73A2B7AF29423FC300C482E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,12 +46,79 @@
 			buildActionMask = 2147483647;
 			files = (
 				73A2B7AE294236A000C482E8 /* KakaoSDK in Frameworks */,
+				738A689E2943189C00B9FD0E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		738A688B294308B400B9FD0E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				738A688C294308BC00B9FD0E /* Coordinator */,
+				73A2B78F2942352C00C482E8 /* SceneDelegate.swift */,
+				73A2B78D2942352C00C482E8 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		738A688C294308BC00B9FD0E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				738A689F294320AC00B9FD0E /* BaseCoordinator.swift */,
+				738A68932943096200B9FD0E /* AppCoordinator.swift */,
+				738A68A12943213D00B9FD0E /* LoginCoordinator.swift */,
+				738A68A32943233C00B9FD0E /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		738A688D294308C900B9FD0E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				738A688F294308F600B9FD0E /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		738A688E294308D400B9FD0E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				73A2B7912942352C00C482E8 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		738A68912943092900B9FD0E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73A2B7AF29423FC300C482E8 /* Assets.xcassets */,
+				73A2B79B2942352E00C482E8 /* Info.plist */,
+				73A2B7982942352E00C482E8 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		738A68922943094400B9FD0E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				738A689729430CD500B9FD0E /* Extension */,
+				738A688D294308C900B9FD0E /* Login */,
+				738A688E294308D400B9FD0E /* Home */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		738A689729430CD500B9FD0E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				738A689829430DD700B9FD0E /* UIColor + Extension.swift */,
+				738A689529430CD000B9FD0E /* UIView + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		73A2B7812942352C00C482E8 = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +138,9 @@
 		73A2B78C2942352C00C482E8 /* myUnsplash */ = {
 			isa = PBXGroup;
 			children = (
-				73A2B78D2942352C00C482E8 /* AppDelegate.swift */,
-				73A2B78F2942352C00C482E8 /* SceneDelegate.swift */,
-				73A2B7912942352C00C482E8 /* ViewController.swift */,
-				73A2B7982942352E00C482E8 /* LaunchScreen.storyboard */,
-				73A2B7AF29423FC300C482E8 /* Assets.xcassets */,
-				73A2B79B2942352E00C482E8 /* Info.plist */,
+				738A688B294308B400B9FD0E /* Application */,
+				738A68922943094400B9FD0E /* Presentation */,
+				738A68912943092900B9FD0E /* Resources */,
 			);
 			path = myUnsplash;
 			sourceTree = "<group>";
@@ -84,6 +163,7 @@
 			name = myUnsplash;
 			packageProductDependencies = (
 				73A2B7AD294236A000C482E8 /* KakaoSDK */,
+				738A689D2943189C00B9FD0E /* SnapKit */,
 			);
 			productName = myUnsplash;
 			productReference = 73A2B78A2942352C00C482E8 /* myUnsplash.app */;
@@ -115,6 +195,7 @@
 			mainGroup = 73A2B7812942352C00C482E8;
 			packageReferences = (
 				73A2B7AC294236A000C482E8 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				738A689C2943189C00B9FD0E /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 73A2B78B2942352C00C482E8 /* Products */;
 			projectDirPath = "";
@@ -142,7 +223,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73A2B7922942352C00C482E8 /* ViewController.swift in Sources */,
+				738A689929430DD700B9FD0E /* UIColor + Extension.swift in Sources */,
+				738A68A0294320AC00B9FD0E /* BaseCoordinator.swift in Sources */,
+				738A68A22943213D00B9FD0E /* LoginCoordinator.swift in Sources */,
+				738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */,
+				738A68A42943233C00B9FD0E /* HomeCoordinator.swift in Sources */,
+				73A2B7922942352C00C482E8 /* HomeViewController.swift in Sources */,
+				738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */,
+				738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */,
 				73A2B78E2942352C00C482E8 /* AppDelegate.swift in Sources */,
 				73A2B7902942352C00C482E8 /* SceneDelegate.swift in Sources */,
 			);
@@ -285,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6Y9V523M6R;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = myUnsplash/Info.plist;
+				INFOPLIST_FILE = myUnsplash/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -313,7 +401,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6Y9V523M6R;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = myUnsplash/Info.plist;
+				INFOPLIST_FILE = myUnsplash/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -356,6 +444,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		738A689C2943189C00B9FD0E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		73A2B7AC294236A000C482E8 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
@@ -367,6 +463,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		738A689D2943189C00B9FD0E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 738A689C2943189C00B9FD0E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		73A2B7AD294236A000C482E8 /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 73A2B7AC294236A000C482E8 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
