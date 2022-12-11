@@ -7,17 +7,6 @@
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
 	</array>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>kakao78491d0cbb6373d38514d3f70cc80674</string>
-			</array>
-		</dict>
-	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
