@@ -57,7 +57,7 @@ extension AppCoordinator {
         var coordinator: BaseCoordinator {
             switch self {
             case .home: return HomeCoordinator()
-            case .login: return HomeCoordinator()
+            case .login: return LoginCoordinator()
             }
         }
         
