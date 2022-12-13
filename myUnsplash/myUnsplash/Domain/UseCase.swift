@@ -8,14 +8,14 @@
 import Foundation
 
 final class UseCase {
-    private let kakaoRepository: KakaoLoginRepository
+    private let repository: Repository
     
-    init(kakaoRepository: KakaoLoginRepository) {
-        self.kakaoRepository = kakaoRepository
+    init(repository: Repository) {
+        self.repository = repository
     }
     
-    func start(completion: @escaping (Result<String, KeyChainError>) -> Void) {
-        kakaoRepository.getAppKey { (appKey: Result<String, KeyChainError>) in
+    func start(with account: Account, completion: @escaping (Result<String, KeyChainError>) -> Void) {
+        repository.getKey(account: account.name) { (appKey: Result<String, KeyChainError>) in
             switch appKey {
             case let .success(key):
                 completion(.success(key))

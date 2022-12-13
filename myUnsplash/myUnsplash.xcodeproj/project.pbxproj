@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		73064F292945DC4300CF6F2A /* KakaoLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064F282945DC4300CF6F2A /* KakaoLoginRepository.swift */; };
+		73064F292945DC4300CF6F2A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064F282945DC4300CF6F2A /* Repository.swift */; };
 		73064F2C2945DF7900CF6F2A /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064F2B2945DF7900CF6F2A /* UseCase.swift */; };
+		731FB0FF294749BD00B12815 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FB0FE294749BD00B12815 /* LoginViewModel.swift */; };
+		731FB10129474A1700B12815 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FB10029474A1700B12815 /* Observable.swift */; };
 		738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A688F294308F600B9FD0E /* LoginViewController.swift */; };
 		738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68932943096200B9FD0E /* AppCoordinator.swift */; };
 		738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A689529430CD000B9FD0E /* UIView + Extension.swift */; };
@@ -17,7 +19,6 @@
 		738A68A0294320AC00B9FD0E /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A689F294320AC00B9FD0E /* BaseCoordinator.swift */; };
 		738A68A22943213D00B9FD0E /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68A12943213D00B9FD0E /* LoginCoordinator.swift */; };
 		738A68A42943233C00B9FD0E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68A32943233C00B9FD0E /* HomeCoordinator.swift */; };
-		738A68A6294486B500B9FD0E /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68A5294486B500B9FD0E /* KeyChainManager.swift */; };
 		738A68AA2945DB0B00B9FD0E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68A92945DB0B00B9FD0E /* Storage.swift */; };
 		738A68AC2945DB2100B9FD0E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68AB2945DB2100B9FD0E /* Service.swift */; };
 		73A2B78E2942352C00C482E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A2B78D2942352C00C482E8 /* AppDelegate.swift */; };
@@ -26,11 +27,15 @@
 		73A2B79A2942352E00C482E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73A2B7982942352E00C482E8 /* LaunchScreen.storyboard */; };
 		73A2B7AE294236A000C482E8 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 73A2B7AD294236A000C482E8 /* KakaoSDK */; };
 		73A2B7B029423FC300C482E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73A2B7AF29423FC300C482E8 /* Assets.xcassets */; };
+		73AE032729484D7F003BEB87 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE032629484D7F003BEB87 /* Account.swift */; };
+		73AE032929484E07003BEB87 /* KeyChainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE032829484E07003BEB87 /* KeyChainError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		73064F282945DC4300CF6F2A /* KakaoLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRepository.swift; sourceTree = "<group>"; };
+		73064F282945DC4300CF6F2A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		73064F2B2945DF7900CF6F2A /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		731FB0FE294749BD00B12815 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		731FB10029474A1700B12815 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		738A688F294308F600B9FD0E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		738A68932943096200B9FD0E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		738A689529430CD000B9FD0E /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -38,7 +43,6 @@
 		738A689F294320AC00B9FD0E /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		738A68A12943213D00B9FD0E /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		738A68A32943233C00B9FD0E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		738A68A5294486B500B9FD0E /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		738A68A92945DB0B00B9FD0E /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		738A68AB2945DB2100B9FD0E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		73A2B78A2942352C00C482E8 /* myUnsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myUnsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +52,8 @@
 		73A2B7992942352E00C482E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73A2B79B2942352E00C482E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73A2B7AF29423FC300C482E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		73AE032629484D7F003BEB87 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		73AE032829484E07003BEB87 /* KeyChainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +83,6 @@
 				738A688C294308BC00B9FD0E /* Coordinator */,
 				73A2B78F2942352C00C482E8 /* SceneDelegate.swift */,
 				73A2B78D2942352C00C482E8 /* AppDelegate.swift */,
-				738A68A5294486B500B9FD0E /* KeyChainManager.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				738A688F294308F600B9FD0E /* LoginViewController.swift */,
+				731FB0FE294749BD00B12815 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -125,6 +131,7 @@
 				738A689729430CD500B9FD0E /* Extension */,
 				738A688D294308C900B9FD0E /* Login */,
 				738A688E294308D400B9FD0E /* Home */,
+				731FB10029474A1700B12815 /* Observable.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -151,7 +158,7 @@
 		738A68A82945DAFB00B9FD0E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				73064F282945DC4300CF6F2A /* KakaoLoginRepository.swift */,
+				73064F282945DC4300CF6F2A /* Repository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -178,10 +185,20 @@
 				738A688B294308B400B9FD0E /* Application */,
 				738A68A72945DAF100B9FD0E /* Data */,
 				73064F2A2945DF6300CF6F2A /* Domain */,
+				73AE032529484D66003BEB87 /* Common */,
 				738A68922943094400B9FD0E /* Presentation */,
 				738A68912943092900B9FD0E /* Resources */,
 			);
 			path = myUnsplash;
+			sourceTree = "<group>";
+		};
+		73AE032529484D66003BEB87 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				73AE032629484D7F003BEB87 /* Account.swift */,
+				73AE032829484E07003BEB87 /* KeyChainError.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,16 +280,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				73064F2C2945DF7900CF6F2A /* UseCase.swift in Sources */,
-				738A68A6294486B500B9FD0E /* KeyChainManager.swift in Sources */,
 				738A68AC2945DB2100B9FD0E /* Service.swift in Sources */,
 				738A68AA2945DB0B00B9FD0E /* Storage.swift in Sources */,
+				731FB0FF294749BD00B12815 /* LoginViewModel.swift in Sources */,
+				73AE032729484D7F003BEB87 /* Account.swift in Sources */,
 				738A689929430DD700B9FD0E /* UIColor + Extension.swift in Sources */,
 				738A68A0294320AC00B9FD0E /* BaseCoordinator.swift in Sources */,
 				738A68A22943213D00B9FD0E /* LoginCoordinator.swift in Sources */,
 				738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */,
-				73064F292945DC4300CF6F2A /* KakaoLoginRepository.swift in Sources */,
+				73064F292945DC4300CF6F2A /* Repository.swift in Sources */,
+				73AE032929484E07003BEB87 /* KeyChainError.swift in Sources */,
 				738A68A42943233C00B9FD0E /* HomeCoordinator.swift in Sources */,
 				73A2B7922942352C00C482E8 /* HomeViewController.swift in Sources */,
+				731FB10129474A1700B12815 /* Observable.swift in Sources */,
 				738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */,
 				738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */,
 				73A2B78E2942352C00C482E8 /* AppDelegate.swift in Sources */,

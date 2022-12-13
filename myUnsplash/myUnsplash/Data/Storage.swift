@@ -10,7 +10,7 @@ import Foundation
 final class Storage {
     static let shared = Storage()
     
-    var key: String?
+    var key: [String: String]?
     
     private init() {}
 }

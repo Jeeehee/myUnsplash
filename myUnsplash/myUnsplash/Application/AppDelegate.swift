@@ -6,24 +6,11 @@
 //
 
 import UIKit
-import KakaoSDKCommon
 import KakaoSDKAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        let useCase = UseCase(kakaoRepository: KakaoLoginRepository())
-        useCase.start { (appKey: Result<String, KeyChainError>) in
-            switch appKey {
-            case let .success(key):
-                KakaoSDK.initSDK(appKey: key)
-            case let .failure(error):
-                return
-            }
-        }
-        
         return true
     }
 
