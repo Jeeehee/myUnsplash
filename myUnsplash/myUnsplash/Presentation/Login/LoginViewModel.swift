@@ -45,6 +45,7 @@ struct LoginViewModel: LoginViewModelProtocol {
         guard UserApi.isKakaoTalkLoginAvailable() else { return }
         
         UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
+            // TODO: Error Handling
             guard error == nil else { return }
 //            let token = oauthToken
         }

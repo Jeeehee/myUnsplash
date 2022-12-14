@@ -37,6 +37,7 @@
 		73AE033729486491003BEB87 /* HomeCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE033629486491003BEB87 /* HomeCollectionViewDataSource.swift */; };
 		73AE033A2948669D003BEB87 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE03392948669D003BEB87 /* Photo.swift */; };
 		73AE033D294866CF003BEB87 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE033C294866CF003BEB87 /* Photos.swift */; };
+		73AE033F294976D1003BEB87 /* UnsplashEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE033E294976D0003BEB87 /* UnsplashEndPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		73AE033629486491003BEB87 /* HomeCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		73AE03392948669D003BEB87 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		73AE033C294866CF003BEB87 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		73AE033E294976D0003BEB87 /* UnsplashEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashEndPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +171,8 @@
 			children = (
 				73AE032D294855ED003BEB87 /* Network */,
 				738A68A82945DAFB00B9FD0E /* Repository */,
-				738A68A92945DB0B00B9FD0E /* Storage.swift */,
-				738A68AB2945DB2100B9FD0E /* Service.swift */,
+				73AE03422949A0A0003BEB87 /* Storage */,
+				73AE03432949A0AD003BEB87 /* Service */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -224,8 +226,9 @@
 		73AE032D294855ED003BEB87 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				73AE032E294855FE003BEB87 /* HTTPMethod.swift */,
+				73AE033E294976D0003BEB87 /* UnsplashEndPoint.swift */,
 				73AE033029485628003BEB87 /* EndPoint.swift */,
+				73AE032E294855FE003BEB87 /* HTTPMethod.swift */,
 				73AE03322948568D003BEB87 /* NetworkError.swift */,
 			);
 			path = Network;
@@ -238,6 +241,22 @@
 				73AE033C294866CF003BEB87 /* Photos.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		73AE03422949A0A0003BEB87 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				738A68A92945DB0B00B9FD0E /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		73AE03432949A0AD003BEB87 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				738A68AB2945DB2100B9FD0E /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +363,7 @@
 				738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */,
 				73A2B78E2942352C00C482E8 /* AppDelegate.swift in Sources */,
 				73AE033529485ECA003BEB87 /* PhotoCell.swift in Sources */,
+				73AE033F294976D1003BEB87 /* UnsplashEndPoint.swift in Sources */,
 				73A2B7902942352C00C482E8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
