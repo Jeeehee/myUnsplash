@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
     private let dataSource = HomeCollectionViewDataSource()
     private let delegate = HomeCollectionViewDelegate()
     
+    private let viewModel = HomeViewModel()
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
@@ -28,7 +30,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        
+        viewModel.bind()
 //        tt.dataTask(url: NetworkTarget.list.url, method: .get) { result in
 //            switch result {
 //            case .success(let result): print(result.count)

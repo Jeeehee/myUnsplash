@@ -8,7 +8,7 @@
 import Foundation
 
 final class Photos {
-    private var list = [Photo]()
+    private var list: [Photo] = []
     
     subscript(index: Int) -> Photo {
         return list[index]
@@ -19,6 +19,7 @@ final class Photos {
     }
     
     func append(_ element: [Photo]) {
+        print(element.count)
         element.forEach { list.append($0) }
     }
     

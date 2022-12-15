@@ -11,10 +11,10 @@ final class HomeCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     var photos: Photos?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        guard let photos = photos else { return 0 }
-//        return photos.count()
+        guard let photos = photos else { return 0 }
+        return photos.count()
         
-        return 10
+//        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

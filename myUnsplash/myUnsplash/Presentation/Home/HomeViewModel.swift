@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeAction {
-    func didTapLoginButton()
+
 }
 
 protocol HomeState {
@@ -23,4 +23,19 @@ protocol HomeViewModelProtocol: HomeAction, HomeState {
 struct HomeViewModel: HomeViewModelProtocol {
     var action: HomeAction { self }
     var state: HomeState { self }
+    
+    private let useCase = UnsplashUseCase(repository: UnsplashRepositoryImpl())
+    
+    init() {
+        bind()
+    }
+    
+    let photos = Photos()
+    
+    func bind() {
+        useCase.start(Photo.self, url: NetworkTarget.list.url, method: .get) { result in
+            guard result != nil else { return }
+            
+        }
+    }
 }

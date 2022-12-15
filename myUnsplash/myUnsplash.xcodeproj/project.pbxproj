@@ -14,6 +14,7 @@
 		7354C926294AEA7F00A835D0 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C925294AEA7F00A835D0 /* Repository.swift */; };
 		7354C928294AEFD400A835D0 /* UnsplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C927294AEFD400A835D0 /* UnsplashRepository.swift */; };
 		7354C92A294AF48A00A835D0 /* UnsplashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C929294AF48A00A835D0 /* UnsplashUseCase.swift */; };
+		7354C92F294B12B300A835D0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C92E294B12B300A835D0 /* HomeViewModel.swift */; };
 		738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A688F294308F600B9FD0E /* LoginViewController.swift */; };
 		738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68932943096200B9FD0E /* AppCoordinator.swift */; };
 		738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A689529430CD000B9FD0E /* UIView + Extension.swift */; };
@@ -53,6 +54,7 @@
 		7354C925294AEA7F00A835D0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		7354C927294AEFD400A835D0 /* UnsplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepository.swift; sourceTree = "<group>"; };
 		7354C929294AF48A00A835D0 /* UnsplashUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashUseCase.swift; sourceTree = "<group>"; };
+		7354C92E294B12B300A835D0 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		738A688F294308F600B9FD0E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		738A68932943096200B9FD0E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		738A689529430CD000B9FD0E /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		738A688E294308D400B9FD0E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7354C92E294B12B300A835D0 /* HomeViewModel.swift */,
 				7354C92D294AFC9F00A835D0 /* View */,
 			);
 			path = Home;
@@ -365,6 +368,7 @@
 				73AE03472949A181003BEB87 /* URLSessionProtocol.swift in Sources */,
 				73AE033A2948669D003BEB87 /* Photo.swift in Sources */,
 				73064F2C2945DF7900CF6F2A /* UseCase.swift in Sources */,
+				7354C92F294B12B300A835D0 /* HomeViewModel.swift in Sources */,
 				73AE032F294855FE003BEB87 /* HTTPMethod.swift in Sources */,
 				73AE033129485628003BEB87 /* EndPoint.swift in Sources */,
 				7354C928294AEFD400A835D0 /* UnsplashRepository.swift in Sources */,
