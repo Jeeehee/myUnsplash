@@ -18,8 +18,8 @@ final class Photos {
         return list.count
     }
     
-    func append(_ element: Photo) {
-        list.append(element)
+    func append(_ element: [Photo]) {
+        element.forEach { list.append($0) }
     }
     
     func reset() {

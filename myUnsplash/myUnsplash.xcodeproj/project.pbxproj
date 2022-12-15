@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		73064F292945DC4300CF6F2A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064F282945DC4300CF6F2A /* Repository.swift */; };
+		73064F292945DC4300CF6F2A /* RepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064F282945DC4300CF6F2A /* RepositoryImpl.swift */; };
 		73064F2C2945DF7900CF6F2A /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064F2B2945DF7900CF6F2A /* UseCase.swift */; };
 		731FB0FF294749BD00B12815 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FB0FE294749BD00B12815 /* LoginViewModel.swift */; };
 		731FB10129474A1700B12815 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FB10029474A1700B12815 /* Observable.swift */; };
+		7354C926294AEA7F00A835D0 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C925294AEA7F00A835D0 /* Repository.swift */; };
+		7354C928294AEFD400A835D0 /* UnsplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C927294AEFD400A835D0 /* UnsplashRepository.swift */; };
+		7354C92A294AF48A00A835D0 /* UnsplashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C929294AF48A00A835D0 /* UnsplashUseCase.swift */; };
 		738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A688F294308F600B9FD0E /* LoginViewController.swift */; };
 		738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68932943096200B9FD0E /* AppCoordinator.swift */; };
 		738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A689529430CD000B9FD0E /* UIView + Extension.swift */; };
@@ -39,14 +42,17 @@
 		73AE033D294866CF003BEB87 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE033C294866CF003BEB87 /* Photos.swift */; };
 		73AE033F294976D1003BEB87 /* NetworkTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE033E294976D0003BEB87 /* NetworkTarget.swift */; };
 		73AE03472949A181003BEB87 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE03462949A181003BEB87 /* URLSessionProtocol.swift */; };
-		73AE034B2949E1D0003BEB87 /* UnsplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE034A2949E1D0003BEB87 /* UnsplashRepository.swift */; };
+		73AE034B2949E1D0003BEB87 /* UnsplashRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE034A2949E1D0003BEB87 /* UnsplashRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		73064F282945DC4300CF6F2A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		73064F282945DC4300CF6F2A /* RepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryImpl.swift; sourceTree = "<group>"; };
 		73064F2B2945DF7900CF6F2A /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		731FB0FE294749BD00B12815 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		731FB10029474A1700B12815 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		7354C925294AEA7F00A835D0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		7354C927294AEFD400A835D0 /* UnsplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepository.swift; sourceTree = "<group>"; };
+		7354C929294AF48A00A835D0 /* UnsplashUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashUseCase.swift; sourceTree = "<group>"; };
 		738A688F294308F600B9FD0E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		738A68932943096200B9FD0E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		738A689529430CD000B9FD0E /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -74,7 +80,7 @@
 		73AE033C294866CF003BEB87 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		73AE033E294976D0003BEB87 /* NetworkTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTarget.swift; sourceTree = "<group>"; };
 		73AE03462949A181003BEB87 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
-		73AE034A2949E1D0003BEB87 /* UnsplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepository.swift; sourceTree = "<group>"; };
+		73AE034A2949E1D0003BEB87 /* UnsplashRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +102,18 @@
 			children = (
 				73AE03382948668A003BEB87 /* Entities */,
 				73064F2B2945DF7900CF6F2A /* UseCase.swift */,
+				7354C929294AF48A00A835D0 /* UnsplashUseCase.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		7354C92D294AFC9F00A835D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73A2B7912942352C00C482E8 /* HomeViewController.swift */,
+				73AE033429485ECA003BEB87 /* PhotoCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		738A688B294308B400B9FD0E /* Application */ = {
@@ -133,9 +149,7 @@
 		738A688E294308D400B9FD0E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				73A2B7912942352C00C482E8 /* HomeViewController.swift */,
-				73AE033429485ECA003BEB87 /* PhotoCell.swift */,
-				73AE033629486491003BEB87 /* HomeCollectionViewDataSource.swift */,
+				7354C92D294AFC9F00A835D0 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -157,6 +171,7 @@
 				738A688D294308C900B9FD0E /* Login */,
 				738A688E294308D400B9FD0E /* Home */,
 				731FB10029474A1700B12815 /* Observable.swift */,
+				73AE033629486491003BEB87 /* HomeCollectionViewDataSource.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -184,8 +199,10 @@
 		738A68A82945DAFB00B9FD0E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				73064F282945DC4300CF6F2A /* Repository.swift */,
-				73AE034A2949E1D0003BEB87 /* UnsplashRepository.swift */,
+				7354C925294AEA7F00A835D0 /* Repository.swift */,
+				73064F282945DC4300CF6F2A /* RepositoryImpl.swift */,
+				73AE034A2949E1D0003BEB87 /* UnsplashRepositoryImpl.swift */,
+				7354C927294AEFD400A835D0 /* UnsplashRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -350,21 +367,24 @@
 				73064F2C2945DF7900CF6F2A /* UseCase.swift in Sources */,
 				73AE032F294855FE003BEB87 /* HTTPMethod.swift in Sources */,
 				73AE033129485628003BEB87 /* EndPoint.swift in Sources */,
+				7354C928294AEFD400A835D0 /* UnsplashRepository.swift in Sources */,
 				738A68AC2945DB2100B9FD0E /* Service.swift in Sources */,
 				738A68AA2945DB0B00B9FD0E /* Storage.swift in Sources */,
+				7354C926294AEA7F00A835D0 /* Repository.swift in Sources */,
 				731FB0FF294749BD00B12815 /* LoginViewModel.swift in Sources */,
 				73AE032729484D7F003BEB87 /* Account.swift in Sources */,
 				738A689929430DD700B9FD0E /* UIColor + Extension.swift in Sources */,
 				738A68A0294320AC00B9FD0E /* BaseCoordinator.swift in Sources */,
+				7354C92A294AF48A00A835D0 /* UnsplashUseCase.swift in Sources */,
 				738A68A22943213D00B9FD0E /* LoginCoordinator.swift in Sources */,
 				73AE033729486491003BEB87 /* HomeCollectionViewDataSource.swift in Sources */,
 				738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */,
-				73064F292945DC4300CF6F2A /* Repository.swift in Sources */,
+				73064F292945DC4300CF6F2A /* RepositoryImpl.swift in Sources */,
 				73AE032929484E07003BEB87 /* KeyChainError.swift in Sources */,
 				738A68A42943233C00B9FD0E /* HomeCoordinator.swift in Sources */,
 				73A2B7922942352C00C482E8 /* HomeViewController.swift in Sources */,
 				73AE03332948568D003BEB87 /* NetworkError.swift in Sources */,
-				73AE034B2949E1D0003BEB87 /* UnsplashRepository.swift in Sources */,
+				73AE034B2949E1D0003BEB87 /* UnsplashRepositoryImpl.swift in Sources */,
 				73AE033D294866CF003BEB87 /* Photos.swift in Sources */,
 				731FB10129474A1700B12815 /* Observable.swift in Sources */,
 				738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */,

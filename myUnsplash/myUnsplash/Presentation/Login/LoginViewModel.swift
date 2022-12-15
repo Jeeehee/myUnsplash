@@ -23,7 +23,7 @@ protocol LoginViewModelProtocol: LoginAction, LoginState {
 }
 
 struct LoginViewModel: LoginViewModelProtocol {
-    private let useCase = UseCase(repository: Repository())
+    private let useCase = UseCase(repository: RepositoryImpl())
     
     var action: LoginAction { self }
     var state: LoginState { self }

@@ -8,9 +8,9 @@
 import Foundation
 
 final class UseCase {
-    private let repository: Repository
+    private let repository: RepositoryImpl
     
-    init(repository: Repository) {
+    init(repository: RepositoryImpl) {
         self.repository = repository
     }
     
