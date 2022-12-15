@@ -37,7 +37,9 @@
 		73AE033729486491003BEB87 /* HomeCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE033629486491003BEB87 /* HomeCollectionViewDataSource.swift */; };
 		73AE033A2948669D003BEB87 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE03392948669D003BEB87 /* Photo.swift */; };
 		73AE033D294866CF003BEB87 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE033C294866CF003BEB87 /* Photos.swift */; };
-		73AE033F294976D1003BEB87 /* UnsplashEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE033E294976D0003BEB87 /* UnsplashEndPoint.swift */; };
+		73AE033F294976D1003BEB87 /* NetworkTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE033E294976D0003BEB87 /* NetworkTarget.swift */; };
+		73AE03472949A181003BEB87 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE03462949A181003BEB87 /* URLSessionProtocol.swift */; };
+		73AE034B2949E1D0003BEB87 /* UnsplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE034A2949E1D0003BEB87 /* UnsplashRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +72,9 @@
 		73AE033629486491003BEB87 /* HomeCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		73AE03392948669D003BEB87 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		73AE033C294866CF003BEB87 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
-		73AE033E294976D0003BEB87 /* UnsplashEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashEndPoint.swift; sourceTree = "<group>"; };
+		73AE033E294976D0003BEB87 /* NetworkTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTarget.swift; sourceTree = "<group>"; };
+		73AE03462949A181003BEB87 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		73AE034A2949E1D0003BEB87 /* UnsplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				73064F282945DC4300CF6F2A /* Repository.swift */,
+				73AE034A2949E1D0003BEB87 /* UnsplashRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -226,7 +231,8 @@
 		73AE032D294855ED003BEB87 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				73AE033E294976D0003BEB87 /* UnsplashEndPoint.swift */,
+				73AE03462949A181003BEB87 /* URLSessionProtocol.swift */,
+				73AE033E294976D0003BEB87 /* NetworkTarget.swift */,
 				73AE033029485628003BEB87 /* EndPoint.swift */,
 				73AE032E294855FE003BEB87 /* HTTPMethod.swift */,
 				73AE03322948568D003BEB87 /* NetworkError.swift */,
@@ -339,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73AE03472949A181003BEB87 /* URLSessionProtocol.swift in Sources */,
 				73AE033A2948669D003BEB87 /* Photo.swift in Sources */,
 				73064F2C2945DF7900CF6F2A /* UseCase.swift in Sources */,
 				73AE032F294855FE003BEB87 /* HTTPMethod.swift in Sources */,
@@ -357,13 +364,14 @@
 				738A68A42943233C00B9FD0E /* HomeCoordinator.swift in Sources */,
 				73A2B7922942352C00C482E8 /* HomeViewController.swift in Sources */,
 				73AE03332948568D003BEB87 /* NetworkError.swift in Sources */,
+				73AE034B2949E1D0003BEB87 /* UnsplashRepository.swift in Sources */,
 				73AE033D294866CF003BEB87 /* Photos.swift in Sources */,
 				731FB10129474A1700B12815 /* Observable.swift in Sources */,
 				738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */,
 				738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */,
 				73A2B78E2942352C00C482E8 /* AppDelegate.swift in Sources */,
 				73AE033529485ECA003BEB87 /* PhotoCell.swift in Sources */,
-				73AE033F294976D1003BEB87 /* UnsplashEndPoint.swift in Sources */,
+				73AE033F294976D1003BEB87 /* NetworkTarget.swift in Sources */,
 				73A2B7902942352C00C482E8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

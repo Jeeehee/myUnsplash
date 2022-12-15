@@ -21,9 +21,20 @@ class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    let tt = UnsplashRepository<Photo>()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        tt.dataTask(url: NetworkTarget.list.url, method: .get) { result in
+            switch result {
+            case .success(let result): print(result.count)
+            case .failure(let error): print("ndkjsnkhn")
+            }
+            
+        }
         
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate

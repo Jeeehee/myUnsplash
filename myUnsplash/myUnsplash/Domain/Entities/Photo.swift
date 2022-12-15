@@ -8,8 +8,6 @@
 import Foundation
 
 struct APIResponse: Decodable {
-    let total: Int
-    let total_pages: Int
     let results: [Photo]
 }
 
@@ -22,8 +20,8 @@ struct Photo: Decodable {
 }
 
 struct URLs: Decodable {
-    let full: URL
-    let small: URL
+    let full: String
+    let small: String
 }
 
 struct User: Decodable {

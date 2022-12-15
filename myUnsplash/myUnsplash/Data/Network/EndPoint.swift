@@ -7,14 +7,9 @@
 
 import Foundation
 
-enum BaseURL {
-    static var unsplashURL: URL {
-        guard let url = URL(string: "https://api.unsplash.com") else { fatalError("Invalid URL") }
-        return url
-    }
-}
-
 protocol EndPoint {
-    var baseURL: URL { get }
+    var scheme: String { get }
+    var host: String { get }
     var path: String { get }
+    var url: URL? { get }
 }
