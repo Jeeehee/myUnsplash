@@ -7,20 +7,18 @@
 
 import UIKit
 
-final class HomeCollectionViewDataSource: NSObject, UICollectionViewDataSource {
-    var photos: Photos?
+ final class HomeCollectionViewDataSource: NSObject, UICollectionViewDataSource {
+    var photos = Photos()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let photos = photos else { return 0 }
-        return photos.count()
-        
-//        return 10
+        return photos.count() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {
             return UICollectionViewCell()
         }
+        cell.configureCellData(with: fetchPhotos(index: indexPath))
         return cell
     }
 }
@@ -28,8 +26,7 @@ final class HomeCollectionViewDataSource: NSObject, UICollectionViewDataSource {
 // MARK: Custom Method
 extension HomeCollectionViewDataSource {
     func fetchPhotos(index: IndexPath) -> Photo? {
-        guard let photo = photos?[index.section] else { return nil }
-        return photo
+        return photos[index.item]
     }
 }
 

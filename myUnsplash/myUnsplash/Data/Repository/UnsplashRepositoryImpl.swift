@@ -9,6 +9,7 @@ import Foundation
 
 final class UnsplashRepositoryImpl: UnsplashRepository {
     private let session: URLSessionProtocol
+    private var photos: Photos?
     
     init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
@@ -59,5 +60,9 @@ final class UnsplashRepositoryImpl: UnsplashRepository {
         }
          
         return nil
+    }
+    
+    func savePhotos<T: Decodable>(_ type: T.Type, data: [Photo]) {
+        photos?.append(data)
     }
 }

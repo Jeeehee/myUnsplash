@@ -48,3 +48,13 @@ final class PhotoCell: UICollectionViewCell {
         }
     }
 }
+
+// MARK: Inject Data
+extension PhotoCell {
+    func configureCellData(with model: Photo?) {
+        guard let model = model else { return }
+        
+        photographerLable.text = model.user.name
+//        imageView.image = // 유알엘 이미지로 변경 후 넣기
+    }
+}

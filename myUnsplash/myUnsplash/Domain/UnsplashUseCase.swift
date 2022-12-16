@@ -9,8 +9,7 @@ import Foundation
 
 final class UnsplashUseCase {
     private let repository: UnsplashRepositoryImpl
-    private let photos = Photos()
-    
+
     init(repository: UnsplashRepositoryImpl) {
         self.repository = repository
     }
@@ -21,6 +20,7 @@ final class UnsplashUseCase {
         repository.dataTask(T.self, request: request) { result in
             switch result {
             case .success(let data):
+//                self.repository.savePhotos(Photo.self, data: data)
                 completion(.success(data))
             case .failure(let error):
                 completion(.failure(.requestFailed))

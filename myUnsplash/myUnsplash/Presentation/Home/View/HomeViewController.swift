@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class HomeViewController: UIViewController {
-    private let dataSource = HomeCollectionViewDataSource()
+    private lazy var dataSource = HomeCollectionViewDataSource()
     private let delegate = HomeCollectionViewDelegate()
     
     private let viewModel = HomeViewModel()
@@ -23,25 +23,21 @@ class HomeViewController: UIViewController {
         return collectionView
     }()
     
-//    let tt = UnsplashRepository<Photo>()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+    
+//        viewModel.bind()
+
+        dataSource.photos = viewModel.photos
         
-        viewModel.bind()
-//        tt.dataTask(url: NetworkTarget.list.url, method: .get) { result in
-//            switch result {
-//            case .success(let result): print(result.count)
-//            case .failure(let error): print("ndkjsnkhn")
-//            }
-//
-//        }
-//
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
         layout()
+        
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     private func layout() {

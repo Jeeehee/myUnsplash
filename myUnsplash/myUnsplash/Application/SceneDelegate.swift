@@ -23,7 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         coordinator = AppCoordinator(navigationController: navigationCotroller)
         coordinator?.start()
-        
         window?.makeKeyAndVisible()
     }
     

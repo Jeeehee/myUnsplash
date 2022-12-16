@@ -11,7 +11,12 @@ final class Photos {
     private var list: [Photo] = []
     
     subscript(index: Int) -> Photo {
-        return list[index]
+        get {
+            return list[index]
+        }
+        set {
+            list[index] = newValue
+        }
     }
     
     func count() -> Int {
@@ -19,7 +24,6 @@ final class Photos {
     }
     
     func append(_ element: [Photo]) {
-        print(element.count)
         element.forEach { list.append($0) }
     }
     
