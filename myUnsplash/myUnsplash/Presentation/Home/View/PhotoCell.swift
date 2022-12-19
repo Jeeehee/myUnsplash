@@ -22,6 +22,7 @@ final class PhotoCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
         label.textColor = .white
+        label.numberOfLines = 2
         return label
     }()
     
@@ -44,7 +45,8 @@ final class PhotoCell: UICollectionViewCell {
         }
         
         photographerLable.snp.makeConstraints {
-            $0.leading.bottom.equalToSuperview().offset(-20)
+            $0.leading.equalToSuperview().offset(10)
+            $0.bottom.equalToSuperview().offset(-20)
         }
     }
 }
@@ -55,6 +57,7 @@ extension PhotoCell {
         guard let model = model else { return }
         
         photographerLable.text = model.user.name
+    
 //        imageView.image = // 유알엘 이미지로 변경 후 넣기
     }
 }

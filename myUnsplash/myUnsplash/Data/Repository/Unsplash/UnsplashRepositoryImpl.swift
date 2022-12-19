@@ -16,19 +16,17 @@ final class UnsplashRepositoryImpl: UnsplashRepository {
     }
     
     func dataTask<T: Decodable>(_ type: T.Type, request: URLRequest, completion: @escaping (Result<[T], NetworkError>) -> Void) {
-        session.dataTask(with: request) { data, response, error in
+        session.dataTask(with: request) { data, response, error in 
             guard self.errorCheck(data: data, response: response, error: error) == nil else { return }
             guard let data = data else { return }
             
-            DispatchQueue.main.async {
-                do {
-                    guard let decodedResponse = try? JSONDecoder().decode([T].self, from: data) else {
-                        return
-                    }
-                    completion(.success(decodedResponse))
-                } catch {
-                    completion(.failure((.decodeFailed)))
+            do {
+                guard let decodedResponse = try? JSONDecoder().decode([T].self, from: data) else {
+                    return
                 }
+                completion(.success(decodedResponse))
+            } catch {
+                completion(.failure((.decodeFailed)))
             }
             
         }.resume()

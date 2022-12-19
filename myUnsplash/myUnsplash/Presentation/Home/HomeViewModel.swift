@@ -8,11 +8,11 @@
 import Foundation
 
 protocol HomeAction {
-//    var loadData: Observable<Bool> { get }
+    var isLoading: Observable<Bool> { get }
 }
 
 protocol HomeState {
-//    var loadData: Observable<Photo> { get }
+//    var loadData: Observable<[Photo]> { get }
 }
 
 protocol HomeViewModelProtocol: HomeAction, HomeState {
@@ -21,10 +21,13 @@ protocol HomeViewModelProtocol: HomeAction, HomeState {
 }
 
 struct HomeViewModel: HomeViewModelProtocol {
+
     var action: HomeAction { self }
     var state: HomeState { self }
-    var photos = Photos()
     
+    var isLoading = Observable(false)
+    
+    var photos = Photos()
     private let useCase = UnsplashUseCase(repository: UnsplashRepositoryImpl())
     
     init() {
@@ -32,15 +35,15 @@ struct HomeViewModel: HomeViewModelProtocol {
     }
     
     func bind() {
-        DispatchQueue.main.async {
-            useCase.start(Photo.self, url: NetworkTarget.list.url, method: .get) { result in
-                switch result {
-                case .success(let data):
-                    photos.append(data)
-                    
-                case .failure(let failure):
-                    print("Error")
-                }
+        useCase.start(Photo.self, url: NetworkTarget.list.url, method: .get) { result in
+            isLoading.value = false
+            
+            switch result {
+            case .success(let data):
+                photos.append(data)
+                
+            case .failure(let failure):
+                print("Error")
             }
         }
     }

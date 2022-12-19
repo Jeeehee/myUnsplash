@@ -17,7 +17,7 @@ final class Observable<T> {
 
     var observers: [Observer] = []
 
-    private var value: T {
+    var value: T {
         didSet {
             notifyObservers()
         }

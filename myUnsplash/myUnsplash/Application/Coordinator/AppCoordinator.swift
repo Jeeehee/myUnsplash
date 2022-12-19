@@ -33,8 +33,8 @@ final class AppCoordinator: BaseCoordinator {
     private func createTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
         
-        tabBarController.tabBar.tintColor = .black
-        tabBarController.tabBar.backgroundColor = .backGroundGray
+        tabBarController.tabBar.tintColor = .white
+        tabBarController.tabBar.backgroundColor = .black
         tabBarController.tabBar.layer.masksToBounds = false
         tabBarController.tabBar.layer.cornerRadius = 50
         tabBarController.viewControllers = childCoordinators.compactMap { $0.navigationController }
