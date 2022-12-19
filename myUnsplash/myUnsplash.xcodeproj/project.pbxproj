@@ -15,8 +15,8 @@
 		7354C928294AEFD400A835D0 /* UnsplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C927294AEFD400A835D0 /* UnsplashRepository.swift */; };
 		7354C92A294AF48A00A835D0 /* UnsplashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C929294AF48A00A835D0 /* UnsplashUseCase.swift */; };
 		7354C92F294B12B300A835D0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C92E294B12B300A835D0 /* HomeViewModel.swift */; };
-		7354C934294D74D000A835D0 /* ImageCacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C933294D74D000A835D0 /* ImageCacheStorage.swift */; };
-		735607AB295014140006E702 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735607AA295014140006E702 /* ImageCacheManager.swift */; };
+		7354C934294D74D000A835D0 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354C933294D74D000A835D0 /* ImageCacheManager.swift */; };
+		735607AB295014140006E702 /* ImageCacheManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735607AA295014140006E702 /* ImageCacheManagerProtocol.swift */; };
 		738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A688F294308F600B9FD0E /* LoginViewController.swift */; };
 		738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68932943096200B9FD0E /* AppCoordinator.swift */; };
 		738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A689529430CD000B9FD0E /* UIView + Extension.swift */; };
@@ -57,8 +57,8 @@
 		7354C927294AEFD400A835D0 /* UnsplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepository.swift; sourceTree = "<group>"; };
 		7354C929294AF48A00A835D0 /* UnsplashUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashUseCase.swift; sourceTree = "<group>"; };
 		7354C92E294B12B300A835D0 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		7354C933294D74D000A835D0 /* ImageCacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheStorage.swift; sourceTree = "<group>"; };
-		735607AA295014140006E702 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		7354C933294D74D000A835D0 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		735607AA295014140006E702 /* ImageCacheManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManagerProtocol.swift; sourceTree = "<group>"; };
 		738A688F294308F600B9FD0E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		738A68932943096200B9FD0E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		738A689529430CD000B9FD0E /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 		7354C931294D74B600A835D0 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				7354C933294D74D000A835D0 /* ImageCacheStorage.swift */,
-				735607AA295014140006E702 /* ImageCacheManager.swift */,
+				7354C933294D74D000A835D0 /* ImageCacheManager.swift */,
+				735607AA295014140006E702 /* ImageCacheManagerProtocol.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -415,8 +415,8 @@
 				738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */,
 				73064F292945DC4300CF6F2A /* RepositoryImpl.swift in Sources */,
 				73AE032929484E07003BEB87 /* KeyChainError.swift in Sources */,
-				7354C934294D74D000A835D0 /* ImageCacheStorage.swift in Sources */,
-				735607AB295014140006E702 /* ImageCacheManager.swift in Sources */,
+				7354C934294D74D000A835D0 /* ImageCacheManager.swift in Sources */,
+				735607AB295014140006E702 /* ImageCacheManagerProtocol.swift in Sources */,
 				738A68A42943233C00B9FD0E /* HomeCoordinator.swift in Sources */,
 				73A2B7922942352C00C482E8 /* HomeViewController.swift in Sources */,
 				73AE03332948568D003BEB87 /* NetworkError.swift in Sources */,

@@ -11,10 +11,12 @@ import SnapKit
 final class PhotoCell: UICollectionViewCell {
     static var identifier: String { return "\(self)" }
     
+    private let imageCacheManager = ImageCacheManager()
+    
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .black
+        imageView.contentMode = .scaleToFill
+//        imageView.backgroundColor = .black
         return imageView
     }()
     
@@ -54,10 +56,15 @@ final class PhotoCell: UICollectionViewCell {
 // MARK: Inject Data
 extension PhotoCell {
     func configureCellData(with model: Photo?) {
-        guard let model = model else { return }
-        
-        photographerLable.text = model.user.name
-    
-//        imageView.image = // 유알엘 이미지로 변경 후 넣기
+        DispatchQueue.main.async {
+            guard let model = model else { return }
+            let image = ss.loadImage(model.urls.small) { cachedImage in
+            guard cachedImage != nil else { return }
+                self.imageView.image = cachedImage
+            }
+            
+            self.photographerLable.text = model.user.name
+        }
     }
+
 }
