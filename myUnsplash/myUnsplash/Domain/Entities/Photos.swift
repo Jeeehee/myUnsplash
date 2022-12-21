@@ -24,7 +24,6 @@ final class Photos {
     }
     
     func append(_ element: [Photo]) {
-//        element.forEach { list.append($0) }
         list.append(contentsOf: element)
     }
     

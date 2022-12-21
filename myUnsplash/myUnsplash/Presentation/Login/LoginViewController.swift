@@ -12,7 +12,7 @@ import KakaoSDKUser
 import KakaoSDKCommon
 
 class LoginViewController: UIViewController {
-    private var viewModel: LoginViewModel?
+    private var viewModel: LoginViewModelProtocol?
     
     private let loginButton: UIButton = {
         let button = UIButton()
@@ -20,16 +20,9 @@ class LoginViewController: UIViewController {
         return button
     }()
 
-    init(viewModel: LoginViewModel?) {
-        super.init(nibName: nil, bundle: nil)
-        
-        guard let viewModel = viewModel else { return }
+    convenience init(viewModel: LoginViewModelProtocol) {
+        self.init()
         self.viewModel = viewModel
-    }
-    
-    @available(*, unavailable)
-    required init?(coder _: NSCoder) {
-        fatalError("Init with coder is unavailable")
     }
     
     deinit {

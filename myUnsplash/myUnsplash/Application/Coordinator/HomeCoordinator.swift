@@ -7,16 +7,25 @@
 
 import UIKit
 
-final class HomeCoordinator: BaseCoordinator {
+final class HomeCoordinator: BaseCoordinator, Navigator {
+    var presentNextViewController: () -> Void
+    
     var childCoordinators: [BaseCoordinator] = []
     var navigationController: UINavigationController
     
-    init() {
-        self.navigationController = UINavigationController()
+    init(navigationController: UINavigationController = .init()) {
+        self.navigationController = navigationController
+        
+        self.presentNextViewController = { [weak navigationController] in
+            let searchResultViewController = SearchResultViewController()
+            navigationController?.pushViewController(searchResultViewController, animated: true)
+        }
     }
     
     func start() {
-        let homeViewController = HomeViewController()
+        let viewModel = HomeViewModel(navigator: self)
+        let homeViewController = HomeViewController(viewModel: viewModel)
         navigationController.pushViewController(homeViewController, animated: true)
+        navigationController.isNavigationBarHidden = true
     }
 }

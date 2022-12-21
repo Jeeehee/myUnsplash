@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct APIResponse: Decodable {
-    let results: [Photo]
-}
-
 struct Photo: Decodable {
     let id: String
     let width: Int

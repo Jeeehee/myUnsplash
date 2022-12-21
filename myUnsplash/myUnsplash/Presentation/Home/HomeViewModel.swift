@@ -9,10 +9,11 @@ import Foundation
 
 protocol HomeAction {
     var isLoading: Observable<Bool> { get }
+    func isSearchBarTextEditig()
 }
 
 protocol HomeState {
-//    var loadData: Observable<[Photo]> { get }
+//    var searchBarTextEditig: Observable<Bool>  { get }
 }
 
 protocol HomeViewModelProtocol: HomeAction, HomeState {
@@ -20,31 +21,39 @@ protocol HomeViewModelProtocol: HomeAction, HomeState {
     var state: HomeState { get }
 }
 
-struct HomeViewModel: HomeViewModelProtocol {
-
-    var action: HomeAction { self }
-    var state: HomeState { self }
-    
-    var isLoading = Observable(false)
-    
-    var photos = Photos()
+final class HomeViewModel: HomeViewModelProtocol {
+    private let navigator: Navigator?
     private let useCase = UnsplashUseCase(repository: UnsplashRepositoryImpl())
     
-    init() {
+    var action: HomeAction { self }
+    var state: HomeState { self }
+    var photos = Photos()
+    
+    var isLoading = Observable(false)
+
+    init(navigator: Navigator?) {
+        self.navigator = navigator
+        
         bind()
     }
     
     func bind() {
-        useCase.start(Photo.self, url: NetworkTarget.list.url, method: .get) { result in
-            isLoading.value = false
+        useCase
+            .start(Photo.self, url: NetworkTarget.list.url, method: .get) { result in
+                self.isLoading.value = false
             
             switch result {
             case .success(let data):
-                photos.append(data)
+                self.photos.append(data)
                 
             case .failure(let failure):
                 print("Error")
             }
         }
+        
+    }
+    
+    func isSearchBarTextEditig() {
+        navigator?.presentNextViewController()
     }
 }

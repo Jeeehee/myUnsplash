@@ -27,7 +27,7 @@ final class Observable<T> {
         self.value = value
     }
 
-    func bind(to observer: AnyObject? = nil, with eventHandler: @escaping EventHandler) {
+    func bind(to observer: AnyObject, with eventHandler: @escaping EventHandler) {
         observers.append(Observer(identifier: observer, handler: eventHandler))
         eventHandler(value)
     }

@@ -11,12 +11,13 @@ final class LoginCoordinator: BaseCoordinator {
     var childCoordinators: [BaseCoordinator] = []
     var navigationController: UINavigationController
     
-    init() {
+    init(navigationController: UINavigationController = .init()) {
         self.navigationController = UINavigationController()
     }
     
     func start() {
-        let loginViewController = LoginViewController(viewModel: LoginViewModel())
+        let viewModel = LoginViewModel()
+        let loginViewController = LoginViewController(viewModel: viewModel)
         navigationController.pushViewController(loginViewController, animated: true)
     }
 }

@@ -16,7 +16,6 @@ final class PhotoCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-//        imageView.backgroundColor = .black
         return imageView
     }()
     
@@ -48,7 +47,7 @@ final class PhotoCell: UICollectionViewCell {
         
         photographerLable.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(10)
-            $0.bottom.equalToSuperview().offset(-20)
+            $0.bottom.equalToSuperview().offset(-10)
         }
     }
 }
@@ -56,15 +55,15 @@ final class PhotoCell: UICollectionViewCell {
 // MARK: Inject Data
 extension PhotoCell {
     func configureCellData(with model: Photo?) {
+        guard let model = model else { return }
+        
         DispatchQueue.main.async {
-            guard let model = model else { return }
-            let image = ss.loadImage(model.urls.small) { cachedImage in
-            guard cachedImage != nil else { return }
+            self.imageCacheManager.loadImage(model.urls.full) { cachedImage in
+                guard cachedImage != nil else { return }
                 self.imageView.image = cachedImage
             }
             
             self.photographerLable.text = model.user.name
         }
     }
-
 }

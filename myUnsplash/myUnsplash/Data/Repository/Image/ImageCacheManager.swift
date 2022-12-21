@@ -7,22 +7,23 @@
 
 import UIKit
 
-final class ImageCacheManager {
+final class ImageCacheManager: ImageCacheManagerProtocol {
     private let cache = NSCache<NSURL, UIImage>()
+    private let session: URLSession
+    
+    init(session: URLSession = URLSession(configuration: .ephemeral)) {
+        self.session = session
+    }
 
-    private func stringToNSURL(_ url: String) -> NSURL? {
+    func stringToNSURL(_ url: String) -> NSURL? {
         guard let url = NSURL(string: url) else { return nil }
         return url
     }
     
-    private func checkCache(for key: NSURL) -> UIImage? {
-        guard let cacheImage = cache.object(forKey: key) else { return nil }
-        return cacheImage
+    func checkCache(for key: NSURL) -> UIImage? {
+        return cache.object(forKey: key)
     }
-    
-}
-
-extension ImageCacheManager: ImageCacheManagerProtocol {
+                            
     func store(_ data: UIImage, _ forKey: NSURL) {
         cache.setObject(data, forKey: forKey)
     }
@@ -36,16 +37,17 @@ extension ImageCacheManager: ImageCacheManagerProtocol {
             return
         }
         
-        let urlSession = URLSession(configuration: .ephemeral)
-        
-        urlSession.dataTask(with: url) { [weak self] data, response, error in
-            guard let data = data, error == nil else { return }
-            guard let image = UIImage(data: data) else { return }
+        session.dataTask(with: url) { [weak self] data, response, error in
+            guard let data = data,
+                  let image = UIImage(data: data),
+                  error == nil else { return }
+            
             self?.store(image, cacheKey)
             
             DispatchQueue.main.async {
                 completion(image)
             }
+            
         }.resume()
     }
 }
