@@ -8,7 +8,7 @@
 import UIKit
 
  final class HomeCollectionViewDataSourceAndDelegate: NSObject, UICollectionViewDataSource {
-     private let viewModel = HomeViewModel(navigator: nil)
+     private let viewModel = HomeViewModel()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.photos.count()

@@ -10,9 +10,7 @@ import SnapKit
 
 class SearchResultViewController: UIViewController {
     
-    deinit {
-        fatalError("Deinit: \(#fileID)")
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,12 +8,9 @@
 import Foundation
 
 protocol HomeAction {
-    var isLoading: Observable<Bool> { get }
-    func isSearchBarTextEditig()
 }
 
 protocol HomeState {
-//    var searchBarTextEditig: Observable<Bool>  { get }
 }
 
 protocol HomeViewModelProtocol: HomeAction, HomeState {
@@ -22,26 +19,20 @@ protocol HomeViewModelProtocol: HomeAction, HomeState {
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
-    private let navigator: Navigator?
     private let useCase = UnsplashUseCase(repository: UnsplashRepositoryImpl())
     
     var action: HomeAction { self }
     var state: HomeState { self }
-    var photos = Photos()
     
-    var isLoading = Observable(false)
+    var photos = Photos()
 
-    init(navigator: Navigator?) {
-        self.navigator = navigator
-        
+    init() {
         bind()
     }
     
     func bind() {
         useCase
-            .start(Photo.self, url: NetworkTarget.list.url, method: .get) { result in
-                self.isLoading.value = false
-            
+            .start(Photo.self, url: NetworkTarget.list(page: 1).url, method: .get) { result in
             switch result {
             case .success(let data):
                 self.photos.append(data)
@@ -51,9 +42,5 @@ final class HomeViewModel: HomeViewModelProtocol {
             }
         }
         
-    }
-    
-    func isSearchBarTextEditig() {
-        navigator?.presentNextViewController()
     }
 }

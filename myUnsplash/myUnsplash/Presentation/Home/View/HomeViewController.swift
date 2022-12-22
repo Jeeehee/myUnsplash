@@ -10,7 +10,7 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     private var viewModel: HomeViewModelProtocol?
-    private var isSearchBarTextEditig = false
+    private var searchViewModel: SearchViewModelProtocol?
     
     private let dataSourceNDelegate = HomeCollectionViewDataSourceAndDelegate()
     private let searchBarView = SearchBarView()
@@ -29,9 +29,10 @@ class HomeViewController: UIViewController {
         return collectionView
     }()
     
-    convenience init(viewModel: HomeViewModelProtocol) {
+    convenience init(viewModel: HomeViewModelProtocol, searchViewModel: SearchViewModelProtocol) {
         self.init()
         self.viewModel = viewModel
+        self.searchViewModel = searchViewModel
     }
     
     override func viewDidLoad() {
@@ -83,6 +84,21 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
-        viewModel?.isSearchBarTextEditig()
+    }
+    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        guard !searchText.isEmpty else { return }
+//        searchViewModel?.isSearchBarTextEditig(searchText)
+//    }
+//
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        searchViewModel?.isSearchBarTextEditig(text)
+        searchViewModel?.getSearchResult()
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }
