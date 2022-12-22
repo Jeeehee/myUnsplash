@@ -8,8 +8,8 @@
 import Foundation
 
 enum NetworkTarget: EndPoint {
-    case list
-    case search
+    case list(page: Int)
+    case search(query: String, page: Int)
 }
 
 extension NetworkTarget {
@@ -23,8 +23,22 @@ extension NetworkTarget {
     
     var path: String {
         switch self {
-        case .list: return "/photos"
-        case .search: return "/search/photos"
+        case .list(_): return "/photos"
+        case .search(_, _): return "/search/photos"
+        }
+    }
+    
+    var queryItems: [URLQueryItem] {
+        switch self {
+        case .list(let page):
+            return [
+                URLQueryItem(name: "client_id", value: "i33Mzo-wnF-1ZKpWLVqe6cSmd0W0auo9vs2UuLJI2SU"),
+                URLQueryItem(name: "page", value: "\(page)")]
+        case .search(let query, let page):
+            return [
+                URLQueryItem(name: "client_id", value: "i33Mzo-wnF-1ZKpWLVqe6cSmd0W0auo9vs2UuLJI2SU"),
+                URLQueryItem(name: "query", value: query),
+                URLQueryItem(name: "page", value: "\(page)")]
         }
     }
     
@@ -33,9 +47,7 @@ extension NetworkTarget {
         urlComponent.scheme = scheme
         urlComponent.host = host
         urlComponent.path = path
-        urlComponent.queryItems = [
-            URLQueryItem(name: "client_id", value: "i33Mzo-wnF-1ZKpWLVqe6cSmd0W0auo9vs2UuLJI2SU")
-        ]
+        urlComponent.queryItems = queryItems
         return urlComponent.url
     }
 }

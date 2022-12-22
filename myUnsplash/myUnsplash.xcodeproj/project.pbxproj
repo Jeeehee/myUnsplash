@@ -21,6 +21,7 @@
 		735607AF2952B4A90006E702 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735607AE2952B4A90006E702 /* Navigator.swift */; };
 		735607B12952B51F0006E702 /* SearchResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735607B02952B51F0006E702 /* SearchResultCoordinator.swift */; };
 		735607B42952B5E00006E702 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735607B32952B5E00006E702 /* SearchResultViewController.swift */; };
+		735607B62952E0C10006E702 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735607B52952E0C10006E702 /* SearchViewModel.swift */; };
 		738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A688F294308F600B9FD0E /* LoginViewController.swift */; };
 		738A68942943096200B9FD0E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A68932943096200B9FD0E /* AppCoordinator.swift */; };
 		738A689629430CD000B9FD0E /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A689529430CD000B9FD0E /* UIView + Extension.swift */; };
@@ -67,6 +68,7 @@
 		735607AE2952B4A90006E702 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		735607B02952B51F0006E702 /* SearchResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCoordinator.swift; sourceTree = "<group>"; };
 		735607B32952B5E00006E702 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		735607B52952E0C10006E702 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		738A688F294308F600B9FD0E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		738A68932943096200B9FD0E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		738A689529430CD000B9FD0E /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				735607B32952B5E00006E702 /* SearchResultViewController.swift */,
+				735607B52952E0C10006E702 /* SearchViewModel.swift */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				7354C92A294AF48A00A835D0 /* UnsplashUseCase.swift in Sources */,
 				738A68A22943213D00B9FD0E /* LoginCoordinator.swift in Sources */,
 				73AE033729486491003BEB87 /* HomeCollectionViewDataSource.swift in Sources */,
+				735607B62952E0C10006E702 /* SearchViewModel.swift in Sources */,
 				738A6890294308F600B9FD0E /* LoginViewController.swift in Sources */,
 				73064F292945DC4300CF6F2A /* RepositoryImpl.swift in Sources */,
 				73AE032929484E07003BEB87 /* KeyChainError.swift in Sources */,
