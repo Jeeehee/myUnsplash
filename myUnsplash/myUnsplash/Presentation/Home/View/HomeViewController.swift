@@ -42,16 +42,6 @@ class HomeViewController: UIViewController {
         layout()
     }
     
-    private func setUpCollectionView() {
-        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
-        collectionView.dataSource = dataSourceNDelegate
-        collectionView.delegate = dataSourceNDelegate
-        
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-    
     private func bind() {
     }
     
@@ -79,6 +69,21 @@ class HomeViewController: UIViewController {
             $0.bottom.equalTo(tabBarBackgroundView.snp.top)
         }
     }
+    
+    private func setUpCollectionView() {
+        dataSourceNDelegate.photos = viewModel?.state.photos
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
+        collectionView.dataSource = dataSourceNDelegate
+        collectionView.delegate = dataSourceNDelegate
+        
+        reloadDataCollectionView()
+    }
+    
+    func reloadDataCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 extension HomeViewController: UISearchBarDelegate {
@@ -86,19 +91,18 @@ extension HomeViewController: UISearchBarDelegate {
         searchBar.becomeFirstResponder()
     }
     
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        guard !searchText.isEmpty else { return }
-//        searchViewModel?.isSearchBarTextEditig(searchText)
-//    }
-//
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text else { return }
-        searchViewModel?.isSearchBarTextEditig(text)
-        searchViewModel?.getSearchResult()
-        searchBar.resignFirstResponder()
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        dataSourceNDelegate.photos?.reset()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        view.endEditing(true)
+        guard let text = searchBar.text else { return }
+        searchViewModel?.isSearchBarTextEditig(text)
+        searchViewModel?.getSearchResult()
+        self.dataSourceNDelegate.photos = self.searchViewModel?.photos
+        
+        searchBar.resignFirstResponder()
+        
+        reloadDataCollectionView()
     }
 }
