@@ -11,6 +11,7 @@ protocol HomeAction {
 }
 
 protocol HomeState {
+    var photos: Photos { get }
 }
 
 protocol HomeViewModelProtocol: HomeAction, HomeState {
@@ -32,10 +33,10 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     func bind() {
         useCase
-            .start(Photo.self, url: NetworkTarget.list(page: 1).url, method: .get) { result in
+            .start([Photo].self, url: NetworkTarget.list(page: 1).url, method: .get) { [weak self] result in
             switch result {
             case .success(let data):
-                self.photos.append(data)
+                self?.photos.append(data)
                 
             case .failure(let failure):
                 print("Error")

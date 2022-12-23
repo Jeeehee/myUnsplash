@@ -7,11 +7,11 @@
 
 import UIKit
 
- final class HomeCollectionViewDataSourceAndDelegate: NSObject, UICollectionViewDataSource {
-     private let viewModel = HomeViewModel()
+final class HomeCollectionViewDataSourceAndDelegate: NSObject, UICollectionViewDataSource {
+    var photos: Photos?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.photos.count()
+        return photos?.count() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -26,7 +26,7 @@ import UIKit
 // MARK: Custom Method
 extension HomeCollectionViewDataSourceAndDelegate {
     func fetchPhotos(index: IndexPath) -> Photo? {
-        return viewModel.photos[index.item]
+        return photos?[index.item]
     }
 }
 

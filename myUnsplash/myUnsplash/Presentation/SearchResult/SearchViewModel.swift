@@ -13,7 +13,7 @@ protocol SearchAction {
 }
 
 protocol SearchState {
-    var query: Observable<String> { get }
+    var photos: Photos { get }
 }
 
 protocol SearchViewModelProtocol: SearchAction, SearchState {
@@ -29,23 +29,20 @@ final class SearchViewModel: SearchViewModelProtocol {
     var state: SearchState { self }
     
     var photos = Photos()
-    var query = Observable("")
-    var qureyString = ""
+    var qureyString: String?
     
     init(navigator: Navigator?) {
         self.navigator = navigator
     }
     
     func getSearchResult() {
-        self.query
-            .value
-            .map { self.qureyString += String($0) }
-        
+        guard let qureyString = qureyString else { return }
+
         useCase
-            .start(Photo.self, url: NetworkTarget.search(query: "search", page: 1).url, method: .get) { result in
+            .start(Results.self, url: NetworkTarget.search(query: qureyString, page: 1).url, method: .get) { [weak self] result in
             switch result {
             case .success(let data):
-                self.photos.append(data)
+                self?.photos.append(data.results)
                 
             case .failure(let failure):
                 print("Error")
@@ -54,8 +51,6 @@ final class SearchViewModel: SearchViewModelProtocol {
     }
     
     func isSearchBarTextEditig(_ query: String) {
-//        navigator?.presentNextViewController()
-        self.query = Observable(query)
+        self.qureyString = query
     }
-    
 }
