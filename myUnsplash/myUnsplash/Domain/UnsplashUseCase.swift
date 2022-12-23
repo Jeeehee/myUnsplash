@@ -14,7 +14,7 @@ final class UnsplashUseCase {
         self.repository = repository
     }
     
-    func start<T: Decodable>(_ type: T.Type, url: URL?, method: HTTPMethod, completion: @escaping (Result<[T], NetworkError>) -> Void) {
+    func start<T: Decodable>(_ type: T.Type, url: URL?, method: HTTPMethod, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let request = repository.createURLRequest(url: url, method: method) else { return }
         
         repository.dataTask(T.self, request: request) { result in

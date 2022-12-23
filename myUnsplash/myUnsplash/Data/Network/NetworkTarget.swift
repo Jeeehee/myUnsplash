@@ -32,12 +32,11 @@ extension NetworkTarget {
         switch self {
         case .list(let page):
             return [
-                URLQueryItem(name: "client_id", value: "i33Mzo-wnF-1ZKpWLVqe6cSmd0W0auo9vs2UuLJI2SU"),
                 URLQueryItem(name: "page", value: "\(page)")]
         case .search(let query, let page):
             return [
                 URLQueryItem(name: "client_id", value: "i33Mzo-wnF-1ZKpWLVqe6cSmd0W0auo9vs2UuLJI2SU"),
-                URLQueryItem(name: "query", value: query),
+                URLQueryItem(name: "query", value: "\(query)"),
                 URLQueryItem(name: "page", value: "\(page)")]
         }
     }

@@ -15,13 +15,13 @@ final class UnsplashRepositoryImpl: UnsplashRepository {
         self.session = session
     }
     
-    func dataTask<T: Decodable>(_ type: T.Type, request: URLRequest, completion: @escaping (Result<[T], NetworkError>) -> Void) {
+    func dataTask<T: Decodable>(_ type: T.Type, request: URLRequest, completion: @escaping (Result<T, NetworkError>) -> Void) {
         session.dataTask(with: request) { data, response, error in 
             guard self.errorCheck(data: data, response: response, error: error) == nil else { return }
             guard let data = data else { return }
             
             do {
-                guard let decodedResponse = try? JSONDecoder().decode([T].self, from: data) else {
+                guard let decodedResponse = try? JSONDecoder().decode(T.self, from: data) else {
                     return
                 }
                 completion(.success(decodedResponse))
@@ -37,6 +37,9 @@ final class UnsplashRepositoryImpl: UnsplashRepository {
         
         var request = URLRequest(url: url)
         request.httpMethod = method.value
+        
+        // TODO: 아이디 가져오는 로직 리팩토링하기
+        request.addValue("Client-ID i33Mzo-wnF-1ZKpWLVqe6cSmd0W0auo9vs2UuLJI2SU", forHTTPHeaderField: "Authorization")
         return request
     }
     
