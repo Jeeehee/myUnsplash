@@ -79,10 +79,17 @@ class HomeViewController: UIViewController {
         reloadDataCollectionView()
     }
     
-    func reloadDataCollectionView() {
+    private func reloadDataCollectionView() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    
+    private func addAlert() {
+        let alert = UIAlertController(title: "Invalid search keyword", message: "Plz check your search keyword.", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Back", style: .cancel)
+        alert.addAction(confirm)
+        present(alert, animated: true)
     }
 }
 
@@ -99,8 +106,10 @@ extension HomeViewController: UISearchBarDelegate {
         guard let text = searchBar.text else { return }
         searchViewModel?.isSearchBarTextEditig(text)
         searchViewModel?.getSearchResult()
-        self.dataSourceNDelegate.photos = self.searchViewModel?.photos
         
+        guard dataSourceNDelegate.photos?.count() != 0 else { addAlert(); return }
+    
+        self.dataSourceNDelegate.photos = self.searchViewModel?.photos
         searchBar.resignFirstResponder()
         
         reloadDataCollectionView()
