@@ -21,11 +21,17 @@ class HomeViewController: UIViewController {
         return view
     }()
     
-    private let collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
+        collectionView.dataSource = dataSourceNDelegate
+        collectionView.delegate = dataSourceNDelegate
+        
+        dataSourceNDelegate.photos = viewModel?.state.photos
+        reloadDataCollectionView()
         return collectionView
     }()
     
@@ -39,16 +45,14 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         searchBarView.searchBar.delegate = self
         
+        setupLongGestureRecognizerOnCollectionView()
         layout()
-        setupLongGestureRecognizerOnCollection()
     }
     
     private func bind() {
     }
     
     private func layout() {
-        setUpCollectionView()
-        
         view.addSubview(searchBarView)
         view.addSubview(tabBarBackgroundView)
         view.addSubview(collectionView)
@@ -70,30 +74,9 @@ class HomeViewController: UIViewController {
             $0.bottom.equalTo(tabBarBackgroundView.snp.top)
         }
     }
-    
-    private func setUpCollectionView() {
-        dataSourceNDelegate.photos = viewModel?.state.photos
-        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
-        collectionView.dataSource = dataSourceNDelegate
-        collectionView.delegate = dataSourceNDelegate
-        
-        reloadDataCollectionView()
-    }
-    
-    private func reloadDataCollectionView() {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-    
-    private func addAlert() {
-        let alert = UIAlertController(title: "Invalid search keyword", message: "Plz check your search keyword.", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "Back", style: .cancel)
-        alert.addAction(confirm)
-        present(alert, animated: true)
-    }
 }
 
+// MARK: SearchBarDelegate
 extension HomeViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
@@ -108,7 +91,10 @@ extension HomeViewController: UISearchBarDelegate {
         searchViewModel?.isSearchBarTextEditig(text)
         searchViewModel?.getSearchResult()
         
-        guard dataSourceNDelegate.photos?.count() != 0 else { addAlert(); return }
+        guard dataSourceNDelegate.photos?.count() != 0 else {
+            addAlert(title: "Invalid search keyword", message: "Plz check your search keyword.", confirmMessage: "Back")
+            return
+        }
     
         self.dataSourceNDelegate.photos = self.searchViewModel?.photos
         searchBar.resignFirstResponder()
@@ -117,8 +103,9 @@ extension HomeViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: GestureRecognizerDelegate
 extension HomeViewController: UIGestureRecognizerDelegate {
-    private func setupLongGestureRecognizerOnCollection() {
+    private func setupLongGestureRecognizerOnCollectionView() {
         let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
         longPressedGesture.minimumPressDuration = 0.5
         longPressedGesture.delegate = self
@@ -129,25 +116,48 @@ extension HomeViewController: UIGestureRecognizerDelegate {
     @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
         let location = gestureRecognizer.location(in: gestureRecognizer.view)
         guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
+        guard let cell = self.collectionView.cellForItem(at: indexPath) as? PhotoCell else { return }
         
         switch gestureRecognizer.state {
-        case .began:
-            UIView.animate(withDuration: 0.5) {
-                guard let cell = self.collectionView.cellForItem(at: indexPath) as? PhotoCell else {
-                    return
-                }
-                guard let image = cell.imageView.image else { return }
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                cell.transform = .init(scaleX: 0.95, y: 0.95)
-            }
-        case .ended:
-            UIView.animate(withDuration: 0.5) {
-                guard let cell = self.collectionView.cellForItem(at: indexPath) as? PhotoCell else {
-                    return
-                }
-                cell.transform = .init(scaleX: 1, y: 1)
-            }
+        case .began: self.animationWhenPressCell(cell)
+        case .ended: self.animationWhenPressEnded(cell)
         default: print("예아")
         }
+    }
+}
+
+// MARK: Custom Method
+extension HomeViewController {
+    private func reloadDataCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    private func addAlert(title: String, message: String, confirmMessage: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let confirm = UIAlertAction(title: confirmMessage, style: .cancel)
+        
+        alert.addAction(confirm)
+        present(alert, animated: true)
+    }
+    
+    private func animationWhenPressCell(_ cell: PhotoCell) {
+        UIView.animate(withDuration: 0.5) {
+            cell.transform = .init(scaleX: 0.95, y: 0.95)
+        }
+    }
+    
+    private func animationWhenPressEnded(_ cell: PhotoCell) {
+        addAlert(title: "Save the photo", message: "Do you wanna save the photo to the album?", confirmMessage: "Yes")
+        
+        UIView.animate(withDuration: 0.5) {
+            cell.transform = .init(scaleX: 1, y: 1)
+        }
+    }
+    
+    private func saveImage(_ image: UIImage?) {
+        guard let image = image else { return }
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
 }
