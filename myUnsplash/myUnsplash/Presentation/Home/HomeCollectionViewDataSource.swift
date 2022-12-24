@@ -25,7 +25,7 @@ final class HomeCollectionViewDataSourceAndDelegate: NSObject, UICollectionViewD
 
 // MARK: Custom Method
 extension HomeCollectionViewDataSourceAndDelegate {
-    func fetchPhotos(index: IndexPath) -> Photo? {
+    private func fetchPhotos(index: IndexPath) -> Photo? {
         return photos?[index.item]
     }
 }

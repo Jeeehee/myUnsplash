@@ -8,6 +8,7 @@
 import Foundation
 
 protocol HomeAction {
+
 }
 
 protocol HomeState {
@@ -42,6 +43,5 @@ final class HomeViewModel: HomeViewModelProtocol {
                 print("Error")
             }
         }
-        
     }
 }

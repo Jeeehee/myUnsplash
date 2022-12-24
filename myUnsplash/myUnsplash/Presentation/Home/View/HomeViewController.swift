@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
         searchBarView.searchBar.delegate = self
         
         layout()
+        setupLongGestureRecognizerOnCollection()
     }
     
     private func bind() {
@@ -113,5 +114,38 @@ extension HomeViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         
         reloadDataCollectionView()
+    }
+}
+
+extension HomeViewController: UIGestureRecognizerDelegate {
+    private func setupLongGestureRecognizerOnCollection() {
+        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        longPressedGesture.minimumPressDuration = 0.5
+        longPressedGesture.delegate = self
+        longPressedGesture.delaysTouchesBegan = true
+        collectionView.addGestureRecognizer(longPressedGesture)
+    }
+    
+    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        let location = gestureRecognizer.location(in: gestureRecognizer.view)
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
+        
+        switch gestureRecognizer.state {
+        case .began:
+            UIView.animate(withDuration: 0.5) {
+                guard let cell = self.collectionView.cellForItem(at: indexPath) as? PhotoCell else {
+                    return
+                }
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
+            }
+        case .ended:
+            UIView.animate(withDuration: 0.5) {
+                guard let cell = self.collectionView.cellForItem(at: indexPath) as? PhotoCell else {
+                    return
+                }
+                cell.transform = .init(scaleX: 1, y: 1)
+            }
+        default: print("예아")
+        }
     }
 }
