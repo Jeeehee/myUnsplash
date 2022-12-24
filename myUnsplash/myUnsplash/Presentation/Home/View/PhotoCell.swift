@@ -13,7 +13,7 @@ final class PhotoCell: UICollectionViewCell {
     
     private let imageCacheManager = ImageCacheManager()
     
-    private let imageView: UIImageView = {
+    let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         return imageView

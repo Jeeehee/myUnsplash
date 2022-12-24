@@ -136,6 +136,8 @@ extension HomeViewController: UIGestureRecognizerDelegate {
                 guard let cell = self.collectionView.cellForItem(at: indexPath) as? PhotoCell else {
                     return
                 }
+                guard let image = cell.imageView.image else { return }
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
             }
         case .ended:
