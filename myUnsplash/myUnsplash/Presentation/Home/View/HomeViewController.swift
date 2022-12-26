@@ -87,18 +87,19 @@ extension HomeViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
         guard let text = searchBar.text else { return }
         searchViewModel?.isSearchBarTextEditig(text)
         searchViewModel?.getSearchResult()
+        
+        self.dataSourceNDelegate.photos = self.searchViewModel?.photos
+        reloadDataCollectionView()
         
         guard dataSourceNDelegate.photos?.count() != 0 else {
             addAlert(title: "Invalid search keyword", message: "Plz check your search keyword.", confirmMessage: "Back")
             return
         }
-    
-        self.dataSourceNDelegate.photos = self.searchViewModel?.photos
-        searchBar.resignFirstResponder()
-        
+
         reloadDataCollectionView()
     }
 }
@@ -150,6 +151,7 @@ extension HomeViewController {
     
     private func animationWhenPressEnded(_ cell: PhotoCell) {
         addAlert(title: "Save the photo", message: "Do you wanna save the photo to the album?", confirmMessage: "Yes")
+        saveImage(cell.imageView.image)
         
         UIView.animate(withDuration: 0.5) {
             cell.transform = .init(scaleX: 1, y: 1)
