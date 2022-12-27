@@ -12,6 +12,8 @@ protocol HomeAction {
 }
 
 protocol HomeState {
+    var isUpdate: Observable<Bool>  { get }
+    var results: Observable<[Photo]>?  { get }
     var photos: Photos { get }
 }
 
@@ -26,22 +28,30 @@ final class HomeViewModel: HomeViewModelProtocol {
     var action: HomeAction { self }
     var state: HomeState { self }
     
+    var isUpdate = Observable<Bool>(nil)
+    var results: Observable<[Photo]>?
     var photos = Photos()
-
+    
     init() {
-        bind()
+        fatchData()
     }
     
-    func bind() {
+    func fatchData() {
         useCase
             .start([Photo].self, url: NetworkTarget.list(page: 1).url, method: .get) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.photos.append(data)
-                
+                self?.results = Observable(data)
+                self?.mapData()
             case .failure(let failure):
                 print("Error")
             }
         }
+    }
+    
+    func mapData() {
+        guard let result = results?.value else { return }
+        self.photos.append(result)
+        self.isUpdate = Observable(true)
     }
 }

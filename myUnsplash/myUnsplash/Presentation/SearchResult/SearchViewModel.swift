@@ -9,11 +9,10 @@ import Foundation
 
 protocol SearchAction {
     func isSearchBarTextEditig(_ query: String)
-    func getSearchResult()
+    func getSearchResult(completion: @escaping ([Photo]?) -> Void)
 }
 
 protocol SearchState {
-    var photos: Photos { get }
 }
 
 protocol SearchViewModelProtocol: SearchAction, SearchState {
@@ -28,21 +27,20 @@ final class SearchViewModel: SearchViewModelProtocol {
     var action: SearchAction { self }
     var state: SearchState { self }
     
-    var photos = Photos()
     var qureyString: String?
     
     init(navigator: Navigator?) {
         self.navigator = navigator
     }
     
-    func getSearchResult() {
+    func getSearchResult(completion: @escaping ([Photo]?) -> Void) {
         guard let qureyString = qureyString else { return }
-
+        
         useCase
-            .start(Results.self, url: NetworkTarget.search(query: qureyString, page: 1).url, method: .get) { [weak self] result in
+            .start(Results.self, url: NetworkTarget.search(query: qureyString, page: 1).url, method: .get) { result in
             switch result {
             case .success(let data):
-                self?.photos.append(data.results)
+                completion(data.results)
                 
             case .failure(let failure):
                 print("Error")

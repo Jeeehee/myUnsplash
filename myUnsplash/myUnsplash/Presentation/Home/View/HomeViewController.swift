@@ -11,7 +11,7 @@ import SnapKit
 class HomeViewController: UIViewController {
     private var viewModel: HomeViewModelProtocol?
     private var searchViewModel: SearchViewModelProtocol?
-    
+
     private let dataSourceNDelegate = HomeCollectionViewDataSourceAndDelegate()
     private let searchBarView = SearchBarView()
     
@@ -29,9 +29,6 @@ class HomeViewController: UIViewController {
         collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
         collectionView.dataSource = dataSourceNDelegate
         collectionView.delegate = dataSourceNDelegate
-        
-        dataSourceNDelegate.photos = viewModel?.state.photos
-        reloadDataCollectionView()
         return collectionView
     }()
     
@@ -45,11 +42,20 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         searchBarView.searchBar.delegate = self
         
-        setupLongGestureRecognizerOnCollectionView()
         layout()
+        bind()
+        setupLongGestureRecognizerOnCollectionView()
     }
     
     private func bind() {
+        viewModel?.state.isUpdate.bind { [weak self] isUpdate in
+            guard let isUpdate = isUpdate else { return }
+            
+            if isUpdate {
+                self?.dataSourceNDelegate.photos = self?.viewModel?.state.photos
+                self?.reloadDataCollectionView()
+            }
+        }
     }
     
     private func layout() {
@@ -80,27 +86,20 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         dataSourceNDelegate.photos?.reset()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
         guard let text = searchBar.text else { return }
-        searchViewModel?.isSearchBarTextEditig(text)
-        searchViewModel?.getSearchResult()
         
-        self.dataSourceNDelegate.photos = self.searchViewModel?.photos
-        reloadDataCollectionView()
+        searchViewModel?.action.isSearchBarTextEditig(text)
         
-        guard dataSourceNDelegate.photos?.count() != 0 else {
-            addAlert(title: "Invalid search keyword", message: "Plz check your search keyword.", confirmMessage: "Back")
-            return
+        searchViewModel?.action.getSearchResult { data in
+            guard let data = data else { return }
+            self.dataSourceNDelegate.photos?.append(data)
+            self.reloadDataCollectionView()
         }
-
-        reloadDataCollectionView()
     }
 }
 

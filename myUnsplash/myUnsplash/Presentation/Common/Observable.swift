@@ -8,33 +8,28 @@
 import Foundation
 
 final class Observable<T> {
-    typealias EventHandler = (T) -> Void
+    typealias EventHandler = ((T?) -> Void)?
 
     struct Observer {
-        weak var identifier: AnyObject?
         var handler: EventHandler
     }
-
-    var observers: [Observer] = []
-
-    var value: T {
+    
+    var observers = [Observer]()
+    
+    var value: T? {
         didSet {
-            notifyObservers()
+            observers.forEach { observer in
+                observer.handler?(value)
+            }
         }
     }
 
-    init(_ value: T) {
+    init(_ value: T?) {
         self.value = value
     }
-
-    func bind(to observer: AnyObject, with eventHandler: @escaping EventHandler) {
-        observers.append(Observer(identifier: observer, handler: eventHandler))
+    
+    func bind(with eventHandler: @escaping (T?) -> Void) {
+        observers.append(Observer(handler: eventHandler))
         eventHandler(value)
-    }
-
-    func notifyObservers() {
-        observers.forEach { observer in
-            observer.handler(value)
-        }
     }
 }
