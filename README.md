@@ -7,7 +7,7 @@ Unsplash API와 Kakao Login API를 이용한 간단한 사진 검색 및 저장 
 
 |사진 검색|사진 저장|
 |---|---|
-| <img width="350" alt="이미지 제목" src="https://github.com/Jeeehee/Image/blob/main/Image/search.gif"> | <img width="350" alt="이미지 제목" src="https://github.com/Jeeehee/Image/blob/main/Image/save.gif"> |
+| <img width="250" alt="이미지 제목" src="https://github.com/Jeeehee/Image/blob/main/Image/search.gif"> | <img width="250" alt="이미지 제목" src="https://github.com/Jeeehee/Image/blob/main/Image/save.gif"> |
 
 <br>
 
